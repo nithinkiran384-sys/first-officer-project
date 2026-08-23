@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Help & Guide - How to Create an Account</title>
+    <style>
+        /* ========== GLOBAL STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ========== HEADER / HERO ========== */
+        .hero {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #4a3f8f;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* ========== CARD / STEP STYLES ========== */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #4a3f8f;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* ========== TAGS / HIGHLIGHTS ========== */
+        .tag {
+            display: inline-block;
+            background: #f0f0ff;
+            color: #4a3f8f;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 3px 4px 3px 0;
+        }
+
+        .important {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            color: #856404;
+        }
+
+        .important strong {
+            color: #533f03;
+        }
+
+        /* ========== PROJECT DETAILS TABLE ========== */
+        .details-box {
+            background: #f8f8ff;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-top: 15px;
+            border: 1px solid #e0e0ff;
+        }
+
+        .details-box h3 {
+            color: #4a3f8f;
+            margin-bottom: 12px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #667eea;
+        }
+
+        .detail-item .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .detail-item h4 {
+            color: #4a3f8f;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .detail-item p {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* ========== STEP FLOW / TIMELINE ========== */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .flow-step .circle {
+            background: #667eea;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .flow-step .content {
+            flex: 1;
+        }
+
+        .flow-step .content h4 {
+            color: #4a3f8f;
+            margin-bottom: 5px;
+        }
+
+        .flow-step .content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ========== ARROW BETWEEN STEPS ========== */
+        .arrow-down {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.8rem;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid #667eea;
+            color: #667eea;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #667eea;
+            color: #fff;
+        }
+
+        /* ========== TIPS SECTION ========== */
+        .tips {
+            background: #e8f5e9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 6px solid #4caf50;
+        }
+
+        .tips h3 {
+            color: #2e7d32;
+            margin-bottom: 12px;
+        }
+
+        .tips ul li {
+            color: #1b5e20;
+            margin-bottom: 8px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            color: #fff;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h1>📘 Help &amp; Guide</h1>
+            <p>Welcome! This page will guide you through the complete process of <strong>creating an
+                    account</strong>,<br>
+                <strong>logging in</strong>, and accessing <strong>real-time project tracking</strong> on our platform.
+            </p>
+            <div class="badge">STEP-BY-STEP GUIDE</div>
+        </div>
+
+        <!-- ========== STEP 1 : REGISTER ========== -->
+        <div class="card">
+            <h2><span class="step-number">1</span> Create an Account (Register)</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                This is your <strong>first step</strong>. If you are a <strong>new user</strong>, you need to register
+                before you can access anything.
+            </p>
+            <ul>
+                <li><strong>Go to the main page</strong> of our application.</li>
+                <li>You will see two options: <span class="tag">Login</span> and <span class="tag">Register</span>.</li>
+                <li><strong>Click on "Register"</strong> (also called "Sign Up" or "Create Account").</li>
+                <li>Fill in the required details to create a new account.</li>
+                <li>Click <strong>"Submit"</strong> or <strong>"Create Account"</strong> to finish registration.</li>
+            </ul>
+
+            <div class="important">
+                <strong>✅ Important:</strong> Registration is a <strong>one-time</strong> process. Once your account is
+                created,
+                you will keep the same username/email and password for future logins.
+            </div>
+        </div>
+
+        <!-- ARROW -->
+        <div class="arrow-down">⬇</div>
+
+        <!-- ========== STEP 2 : LOGIN ========== -->
+        <div class="card">
+            <h2><span class="step-number">2</span> Login to Your Account</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                After registering, <strong>go back to the main page</strong> and this time choose
+                <strong>Login</strong>.
+            </p>
+            <ul>
+                <li><strong>Go back</strong> to the main page (the first screen you saw).</li>
+                <li>Click on <span class="tag">Login</span> (also called "Sign In").</li>
+                <li>Enter the <strong>username/email</strong> and <strong>password</strong> you created during
+                    registration.</li>
+                <li>Click <strong>"Login"</strong> to access your account.</li>
+            </ul>
+
+            <div class="important">
+                <strong>🔐 Tip:</strong> Logging in is required <strong>every time</strong> you visit the app.
+                Make sure you remember your username/email and password. Use the <em>"Forgot Password"</em> link if you
+                forget.
+            </div>
+        </div>
+
+        <!-- ARROW -->
+        <div class="arrow-down">⬇</div>
+
+        <!-- ========== STEP 3 : PROJECT DETAILS ========== -->
+        <div class="card">
+            <h2><span class="step-number">3</span> Enter Project Details</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                Once you are logged in, the app will ask you to fill in some <strong>project information</strong>.
+                This is required so we can set up your project correctly.
+            </p>
+
+            <div class="details-box">
+                <h3>📋 Details You Will Be Asked To Fill:</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="icon">📁</span>
+                        <h4>Project Name</h4>
+                        <p>The official name of your project</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🔢</span>
+                        <h4>Project Code</h4>
+                        <p>A unique code/ID for the project</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">📍</span>
+                        <h4>Location</h4>
+                        <p>City or area where project is based</p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🏢</span>
+                        <h4>Address</h4>
+                        <p>Full address of the project site</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important" style="margin-top: 20px;">
+                <strong>✍️ Note:</strong> Fill in all the details carefully and accurately.
+                These details are used to identify and track your project throughout its lifecycle.
+            </div>
+        </div>
+
+        <!-- ARROW -->
+        <div class="arrow-down">⬇</div>
+
+        <!-- ========== STEP 4 : REAL-TIME TRACKING ========== -->
+        <div class="card">
+            <h2><span class="step-number">4</span> View Real-Time Project Tracking</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                After entering your project details, you will be taken to the main dashboard where you can view
+                <strong>real-time tracking</strong> of your project.
+            </p>
+            <ul>
+                <li>See the <strong>live status</strong> of your project.</li>
+                <li>Track <strong>progress, updates and milestones</strong> in real time.</li>
+                <li>Monitor everything from your personal dashboard.</li>
+            </ul>
+
+            <div class="important">
+                <strong>📡 Good to know:</strong> The real-time tracking updates automatically,
+                so you can always see the latest information about your project without refreshing the page.
+            </div>
+        </div>
+
+        <!-- ========== SUMMARY FLOW ========== -->
+        <div class="card" style="border-left-color: #4caf50;">
+            <h2 style="color:#2e7d32;">🗺️ Complete Process Summary</h2>
+            <div class="flow">
+
+                <div class="flow-step">
+                    <div class="circle">1</div>
+                    <div class="content">
+                        <h4>Register an Account</h4>
+                        <p>Create your account from the main page (first time users only).</p>
+                    </div>
+                </div>
+
+                <div class="arrow-down" style="font-size:1.2rem; margin:0;">⬇</div>
+
+                <div class="flow-step">
+                    <div class="circle">2</div>
+                    <div class="content">
+                        <h4>Login</h4>
+                        <p>Go back to the main page and login with your credentials.</p>
+                    </div>
+                </div>
+
+                <div class="arrow-down" style="font-size:1.2rem; margin:0;">⬇</div>
+
+                <div class="flow-step">
+                    <div class="circle">3</div>
+                    <div class="content">
+                        <h4>Fill Project Details</h4>
+                        <p>Enter project name, code, location, and address.</p>
+                    </div>
+                </div>
+
+                <div class="arrow-down" style="font-size:1.2rem; margin:0;">⬇</div>
+
+                <div class="flow-step">
+                    <div class="circle">4</div>
+                    <div class="content">
+                        <h4>Access Real-Time Tracking</h4>
+                        <p>Track your project's live status from your dashboard.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BUTTONS -->
+            <div style="text-align:center; margin-top:25px;">
+                <a href="#" class="btn btn-outline">← Back to Main Page</a>
+                <a href="index.html" class="btn btn-primary">Get Started →</a>
+            </div>
+        </div>
+
+        <!-- ========== TIPS ========== -->
+        <div class="tips">
+            <h3>💡 Quick Tips</h3>
+            <ul>
+                <li>Keep your login credentials (username &amp; password) safe and secure.</li>
+                <li>Use a password you can remember, but that is not too easy for others to guess.</li>
+                <li>Always make sure you are logged in before trying to access project details.</li>
+                <li>If you face any issue, use the "Forgot Password" option or contact support.</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>Need more help? <a href="#">Contact Support</a> | <a href="#">Frequently Asked Questions</a></p>
+            <p style="margin-top:8px; opacity:0.8;">© 2026 Your Project Name. All rights reserved.</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

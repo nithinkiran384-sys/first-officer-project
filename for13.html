@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Verification & Tracking</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: #123c69;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .main-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .main-heading h2 {
+            color: #123c69;
+            font-size: 32px;
+        }
+
+        /* PROJECT INFORMATION */
+        .project-card {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .project-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .poster {
+            width: 350px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #ddd;
+        }
+
+        .project-details {
+            flex: 15px;
+        }
+
+        .project-details h2 {
+            color: #123c69;
+            margin-bottom: 15px;
+        }
+
+        .project-details p {
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .verify-btn {
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .verify-btn:hover {
+            background: #146c43;
+        }
+
+        #verificationMessage {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* DASHBOARD */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        /* MAP */
+        .map-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container h3 {
+            color: #123c69;
+            margin-bottom: 15px;
+        }
+
+        #map {
+            width: 100%;
+            height: 650px;
+            border-radius: 10px;
+            background: #ddd;
+        }
+
+        /* SIDE INFORMATION */
+        .side-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 17px;
+            margin-top: 7px;
+        }
+
+        .status {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        /* THREE TOOLS */
+        .tools {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 40px;
+            background: #123c69;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            .project-content {
+                flex-direction: column;
+            }
+
+            .poster {
+                width: 100%;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .tools {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div>
+            <h1>ProjectTrack</h1>
+            <p>Project Verification & Tracking System</p>
+        </div>
+
+        <div>
+            <strong>Project Portal</strong>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+        <!-- MAIN HEADING -->
+        <div class="main-heading">
+            <h2>Project Information</h2>
+        </div>
+
+
+        <!-- PROJECT DETAILS -->
+        <div class="project-card">
+
+            <div class="project-content">
+
+                <!-- PROJECT POSTER -->
+                <img class="poster" src="blob:https://gemini.google.com/2702dc58-16ec-4bdc-a84e-97bd20d6a41e"
+                    alt="Project Poster">
+
+                <!-- PROJECT INFORMATION -->
+                <form id="projectForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="projectName">Project Name / Code *</label>
+                        <input type="text" id="projectName" name="projectName" placeholder="Enter project name or code"
+                            required>
+                    </div>
+
+                    <dv class="form-group">
+                        <label for="address">Project Location / Address *</label>
+                        <input type="text" id="address" name="address" placeholder="Enter project address" required>
+            </div>
+            <div class="project-details">
+
+                <h2>Sunrise Residential Project</h2>
+
+
+
+                <!-- VERIFY BUTTON -->
+                <button class="verify-btn" onclick="verifyProject()">
+                    Verify Project
+                </button>
+
+                <div id="verificationMessage"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAP + PROJECT STATUS -->
+    <div class="dashboard">
+
+        <!-- GOOGLE MAP -->
+        <div class="map-container">
+
+            <h3>📍 Project Location & Tracking</h3>
+
+            <div id="map">
+                <iframe id="googleMap" width="100%" height="100%" style="border:0; border-radius:10px;" loading="lazy"
+                    allowfullscreen src="https://www.google.com/maps?q=Rajahmundry,Andhra%20Pradesh&output=embed">
+                </iframe>
+            </div>
+
+        </div>
+
+
+        <!-- SIDE INFORMATION -->
+        <div class="side-info">
+
+            <div class="info-box">
+                <h3>📊 Project Status</h3>
+                <p class="status" id="projectStatus">
+                    Not Verified
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3>📅 Start Date</h3>
+                <p>01 January 2026</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🏁 Completion</h3>
+                <p>31 December 2026</p>
+            </div>
+
+            <div class="info-box">
+                <h3>% Percentage.</h3>
+                <p>64% completion</p>
+            </div>
+
+            <div class="info-box">
+                <h3>⏱️ Duration</h3>
+                <p>12 Months</p>
+            </div>
+
+            <div class="info-box">
+                <h3>💰 Budget</h3>
+                <p>₹2,50,00,000</p>
+            </div>
+
+            <div class="info-box">
+                <h3>👷 Builder</h3>
+                <p>Sunrise Builders</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- THREE TOOLS -->
+    <div class="tools">
+
+        <div class="tool-card">
+            <div class="icon">📍</div>
+            <h3>Live Location</h3>
+            <p id="locationStatus">
+                Project Location
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">📊</div>
+            <h3>Project Progress</h3>
+            <p id="progress">
+                0%
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">⏱️</div>
+            <h3>Project Duration</h3>
+            <p>
+                12 Months
+            </p>
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 ProjectTrack | Project Verification System</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function verifyProject() {
+
+            const message =
+                document.getElementById("verificationMessage");
+
+            const status =
+                document.getElementById("projectStatus");
+
+            const location =
+                document.getElementById("locationStatus");
+
+            const progress =
+                document.getElementById("progress");
+
+
+            // Verification message
+            message.innerHTML =
+                "✅ Project verified successfully!";
+
+            message.style.color = "green";
+
+
+            // Update project status
+            status.innerHTML =
+                "🟢 Project Started";
+
+            status.style.color = "green";
+
+
+            // Update location
+            location.innerHTML =
+                "📍 Rajahmundry, Andhra Pradesh";
+
+
+            // Example progress
+            progress.innerHTML =
+                "25%";
+
+
+            /*
+                Open Google Maps in a new tab.
+
+                Change this address to the actual
+                project address.
+            */
+
+            const projectAddress =
+                "Rajahmundry, Andhra Pradesh, India";
+
+            const mapsURL =
+                "https://www.google.com/maps/search/?api=1&query="
+                + encodeURIComponent(projectAddress);
+
+            window.open(mapsURL, "_blank");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
